@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="navbar.master.cs" Inherits="navbar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="Styles/bulma.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/global.css">
+    <link href="css/forum.css" rel="stylesheet" type="text/css" />
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div>
+            <!-- START NAV -->
+
+            <nav class="navbar ">
+
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item brand-text">
+                            <p class="title is-3 is-spaced has-text-link">浦园Talk</p>
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="Default.aspx">首页
+                            </a>
+                            <a class="navbar-item" href="Publish.aspx">发帖
+                            </a>
+                            <a class="navbar-item" href="About.aspx">联系我们
+                            </a>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <a href="selfManger.aspx"><span style="float: right; margin-top: 15px; margin-right: 20px;" id="welcome" runat="server"></span></a>
+                            <div class="buttons">
+                                <asp:LinkButton ID="login" OnClick="login_Click" CssClass="button is-primary  is-small" runat="server">登录</asp:LinkButton>
+                                <a class="button is-light is-small" href="Register.aspx">注册
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </nav>
+            <!-- END NAV -->
+            <section>
+                <asp:ContentPlaceHolder ID="cphSection" runat="server">
+                </asp:ContentPlaceHolder>
+            </section>
+
+        </div>
+        <div class="container">
+            <div class="fly-footer">
+
+                <p>
+                    <a href="http://p.jlxy.nju.edu.cn/cas/login">智慧校园云平台</a>
+                    <span class="pipe">|</span>
+                    <a href="https://www.nju.edu.cn/">南京大学</a>
+                    <span class="pipe">|</span>
+                    <a href="http://www.jseea.cn/">江苏省教育考试院</a>
+                    <span class="pipe">|</span>
+                    <a href="http://news.nju.edu.cn/">南京大学新闻网</a>
+                    <span class="pipe">|</span>
+                    <a href="https://mail.jlxy.nju.edu.cn/">学校邮箱</a>
+
+                </p>
+                <p>Copyright 2019 南京大学金陵学院-浦园Talk by 计算机科学与技术 2017020800003 蔡勇</p>
+                <div>
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:Timer ID="Timer1" Interval="1000" runat="server" OnTick="Timer1_Tick"></asp:Timer>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    <asp:ContentPlaceHolder ID="js" runat="server"></asp:ContentPlaceHolder>
+</body>
+
+</html>

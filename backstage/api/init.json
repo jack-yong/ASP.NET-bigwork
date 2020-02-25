@@ -1,0 +1,53 @@
+{
+  "clearInfo": {
+    "clearUrl": "api/clear.json"
+  },
+  "homeInfo": {
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": ""
+  },
+  "logoInfo": {
+    "title": "浦园Talk后台",
+    "image": "./backstage/images/logo.png",
+    "href": ""
+  },
+  "menuInfo": {
+    "currency": {
+      "title": "常规管理",
+      "icon": "fa fa-address-book",
+      "child": [
+        {
+          "title": "用户管理",
+          "icon": "fa fa-user",
+          "href": "./ManageUserJuris.aspx",
+          "target": "_self"
+        },
+        {
+          "title": "板块管理",
+          "icon": "fa fa-tags",
+          "href": "./SessionManger.aspx",
+          "target": "_self"
+        },
+        {
+          "title": "发帖管理",
+          "icon": "fa fa-edit",
+          "href": "./TopicManger.aspx",
+          "target": "_self"
+        },
+        {
+          "title": "回复管理",
+          "icon": "fa fa-comments-o",
+          "href": "./ReplayManger.aspx",
+          "target": "_self"
+        },
+        {
+          "title": "反馈管理",
+          "icon": "fa fa-envelope-o",
+          "href": "./FeedbackManger.aspx",
+          "target": "_self"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JinLinTalkBBS" Class="JinLinTalkBBSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\JinLinTalkBBS.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="JinLinTalkBBSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Feedback" Member="Feedback">
+    <Type Name="Feedback">
+      <Column Name="OpinionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ftiele" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Opinion" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Time" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsSee" Type="System.String" DbType="Char(6) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Reply" Member="Reply">
+    <Type Name="Reply">
+      <Column Name="Rid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Ruid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rtid" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RStatement" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="Rtime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Topic_Reply" Member="Topic" ThisKey="Rtid" OtherKey="Tid" Type="Topic" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Section" Member="Section">
+    <Type Name="Section">
+      <Column Name="Sid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Sname" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="SmasterId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Sstatement" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Association Name="Section_Topic" Member="Topic" ThisKey="Sid" OtherKey="Tsid" Type="Topic" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Topic" Member="Topic">
+    <Type Name="Topic">
+      <Column Name="Tid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tsid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tuid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Ttiele" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tcontents" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="BrowseCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReplyCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsClose" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="Ttime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Topic_Reply" Member="Reply" ThisKey="Tid" OtherKey="Rtid" Type="Reply" />
+      <Association Name="Section_Topic" Member="Section" ThisKey="Tsid" OtherKey="Sid" Type="Section" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[user]" Member="user">
+    <Type Name="user">
+      <Column Name="UId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Uname" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Upassword" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Udepartment" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="Umajor" Type="System.String" DbType="NVarChar(80) NOT NULL" CanBeNull="false" />
+      <Column Name="USex" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="HeadUrl" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="TopicCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Enabled" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="RegistrationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

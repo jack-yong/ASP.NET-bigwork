@@ -1,0 +1,17 @@
+﻿.social-media {
+    margin-top: 10px;
+}
+
+    .social-media a {
+        margin-right: 10px;
+    }
+
+.field:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar {
+        width: 100%;
+    }
+}
