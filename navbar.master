@@ -76,19 +76,8 @@
                     <a href="https://mail.jlxy.nju.edu.cn/">学校邮箱</a>
 
                 </p>
-                <p>Copyright 2019 南京大学金陵学院-浦园Talk by 计算机科学与技术 2017020800003 蔡勇</p>
-                <div>
-                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-                    <asp:Timer ID="Timer1" Interval="1000" runat="server" OnTick="Timer1_Tick"></asp:Timer>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="Timer1" EventName="Tick" />
-                        </Triggers>
-                    </asp:UpdatePanel>
-                </div>
+                <p>Copyright 2021 南京大学金陵学院-浦园Talk by 计算机科学与技术 2017020800003 蔡勇</p>
+               
 
             </div>
         </div>
